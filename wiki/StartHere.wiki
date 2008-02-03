@@ -21,7 +21,7 @@ If you are using the full distribution you will need the following;
 
 *II*: Apache Ant [http://ant.apache.org Apache Ant] is required to run 
 
-*III*: Schematron Ant Task.
+*III*: [http://www.schematron.com/resource/2007-02-16-ant-schematron-sample.zip Download] Schematron Ant Task and expand under lib/schematron.
 
 *IV*: Amend your local [http://debugxslt.googlecode.com/svn/trunk/build.properties build properties] to reflect your setup and where your XSLT processor jars are.
 
