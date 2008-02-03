@@ -11,11 +11,9 @@ svn checkout http://debugxlst.googlecode.com/svn/trunk/ debugxslt-read-only
 
 
 
-= Dependencies =
+= Installation and Dependencies =
 
 If you are using the full distribution you will need the following;
-
-[http://debugxslt.googlecode.com/svn/trunk/README README]
 
 *I*: XSLT v2.0 processor, I recommend downloading Michael Kay's Saxon from www.saxonica.com. You will have to unzip (pref in /lib dir) and amend build.properties as to location and saxon jar name
 
@@ -25,15 +23,18 @@ If you are using the full distribution you will need the following;
 
 *IV*: Amend your local [http://debugxslt.googlecode.com/svn/trunk/build.properties build properties] to reflect your setup and where your XSLT processor jars are.
 
-*V*: Amend debugxslt run script with where your XSLT processor is (using Ant -lib flag)
+*V*: Amend debugxslt bash script with where your XSLT processor is (using Ant -lib flag)
 
-You do not have to use the distribution, you could just 
-
+please read the included [http://debugxslt.googlecode.com/svn/trunk/README README] for the latest information on how to install debugxslt.
 
 = Usage =
 
-to get Ant targets, run Apache Ant with -projecthelp switch  
+You can use the bash run script to check single XSLT files
 
-> ant -projecthelp
+> debugxslt myfile.xsl
 
-Buildfile: build.xml
+to run debugxslt test suite run ant Test target
+
+> ant -lib lib/saxon -f build.xml test
+
+Another (perhaps simpler way) option is to just take the rules schematron and run in your own setup.
