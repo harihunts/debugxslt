@@ -4,9 +4,9 @@
 
 Rules are just schematron <assert/> or <report/> elements, which are contained in sch/xslt-std.sch.
 
-I use <report/> when it is an ambiguous condition and want to output some extra information that might help 'jog' the XSLT authors mind that all is well.
+I use <assert/> when the described condition should exist. This either embodies some well known 'gotcha' or best practice I want to maintain.
 
-I use <assert/> when the described condition should exist (still some best practice here, for example I believe a xsl:stylesheet should have @version attribute). 
+I use <report/> when I want to annotate usage, this is helpful in ambiguous situations where extra output may 'jog' the XLST authors mind to focus on common pitfalls of common constructions.
 
 Please review the sch/xslt-std.sch for examples of rules.
 
