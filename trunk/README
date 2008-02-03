@@ -1,0 +1,91 @@
+This is debugxslt v.0.1                                      
+------------------------------
+debugxslt is an experiment, to see if Schematron can be used as the basis of a kind of lint checker for XSLT.
+
+Lint rules are defined in schematron (XSLT2 binding) schema, under sch/xslt-std.sch.
+
+The rest of the distribution is just a small bit of code to easily run schematron (using the just released Schematron Ant Task) test suite.
+
+LICENSE INFORMATION
+-------------------
+
+debugxslt is released under the New BSD License, a copy of which is included in this distribution in a file named LICENSE
+
+
+INSTALLATION & PREREQUISITES
+----------------------------
+
+To use the distribution and run unit tests you will need to install following dependencies
+
+	Apache Ant (http://ant.apache.org) 
+	
+	Schematron Ant Task (http://www.schematron.com) download and place in lib/schematron
+
+	XSLT v2.0 processor, we recommend using Michael Kay SAXON, download and place in lib/saxon
+
+You will have to edit the build.properties file to inform debugxslt where SAXON and Schematron Ant task is.
+
+If you are using debugxslt bash script, you will have to edit ant -lib flag to reflect location of saxon jars
+
+RUN
+---
+
+You can use the bash run script to check single XSLT files
+
+> debugxslt myfile.xsl
+
+to run debugxslt test suite run ant Test target
+
+> ant -lib lib/saxon -f build.xml test
+
+Another (perhaps simpler way) option is to just take the rules schematron and run in your own setup.
+
+DISTRO
+------
+
+The distribution consists of:
+
+    README      This document.
+
+	TODO		list of issues and planned enhancements
+
+	LICENSE		contains copy of New BSD License
+		
+    build.xml   Apache Ant build file used to run schematron against xslt
+
+    build.properties properties used by the Apache Ant build file
+
+    debugxslt   debugxslt bash script
+
+    lib/    3rd party deps, this directory is empty for the time being
+
+    test/   contains example xslt for unit tests
+
+	sch/ 	contains debugxslt lint rules
+	
+
+CHANGES
+-------
+
+Check out the Changelog file which is from time to time, generated from svn history
+
+
+TODO
+----
+
+Check out the issues list http://code.google.com/p/debugxslt/issues/list or TODO file
+contained in the distribution.
+
+
+DISCUSSION GROUP
+----------------
+
+http://groups.google.com/group/debugxslt
+
+debugxslt@googlegroups.com
+
+
+COPYRIGHT
+---------
+
+debugxslt and related material and website is the Copyright (C) 2008 of James Fuller (jim.fuller@webcomposite.com), All rights reserved.
