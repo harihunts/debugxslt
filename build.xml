@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  use the -debug flag for more information when running ant  //-->
+
+<project name="debugxslt" default="test" basedir=".">
+  <description>Generate xslt for debugging XSLT</description>
+
+<!-- ===================================================== -->
+<!-- Import build propertie                                -->
+<!-- ===================================================== -->
+<property file="build.properties"/>
+
+
+<!-- ===================================================== -->
+<!-- Import Schematron Ant Task                            -->
+<!-- ===================================================== -->
+<!-- 
+	download Schematron Ant Task from
+	http://www.schematron.com/resource/2007-02-16-ant-schematron-sample.zip
+//-->
+<taskdef name="schematron" 
+    classname="com.schematron.ant.SchematronTask"
+    classpath="${lib.schematron-ant.jar}"/>
+
+
+<!-- ===================================================== -->
+<!-- Define XSLT Processor	                               -->
+<!-- ===================================================== -->
+<!-- for multiple xslt process test						   -->
+<!-- ===================================================== -->
+  <path id="saxon.path">
+      <fileset dir="${lib.saxon.path}">
+        <include name="**/*.jar"/>
+      </fileset>
+  </path>
+  <path id="xalan.path">
+      <fileset dir="${lib.xalan.path}">
+        <include name="**/*.jar"/>
+      </fileset>
+  </path>
+
+
+
+<!-- ===================================================== -->
+<!-- run xslt processors over source                       -->
+<!-- ===================================================== -->
+
+<!-- ===================================================== -->
+<!-- annotate processor specific error messages            -->
+<!-- ===================================================== -->
+
+<!--
+	
+typo: common spelling mistakes
+
+silent processing errors
+
+//-->
+
+
+
+<!-- ===================================================== -->
+<!-- Schematron exec  						               -->
+<!-- ===================================================== -->
+<target name="exec" description="run schematron against file">
+  	<schematron schema="sch/xslt-std.sch" 
+				file="${xslt.file}" 
+				failonerror="false"/>
+</target>
+
+
+<!-- ===================================================== -->
+<!-- Report									               -->
+<!-- ===================================================== -->
+<!-- convert report.xml to human readable report //-->
+
+
+<!-- ===================================================== -->
+<!-- Test Target                                           -->
+<!-- ===================================================== -->
+<target name="test" depends="clean,schematron-lint-unit" description="test debugxslt">
+	<echo message="testing debugxslt"/>
+</target>
+
+
+<!-- ===================================================== -->
+<!-- Run Target                                            -->
+<!-- ===================================================== -->
+ <target name="run" depends="clean,exec" description="run debugxslt">
+	<echo message="checking xslt file: ${xslt.file}"/>
+</target>
+
+
+<!-- ===================================================== -->
+<!-- Usage Target                                           -->
+<!-- ===================================================== -->
+<target name="usage" description="output some usage information">
+	<echo message="to use debugxslt ...."/>
+</target>
+
+		
+<!-- ===================================================== -->
+<!-- Clean Target                                          -->
+<!-- ===================================================== -->     
+<target name="clean">
+	<delete file="report.xml"/>
+</target>
+
+
+<!-- ===================================================== -->
+<!-- Schematron Lint Unit Test				               -->
+<!-- ===================================================== -->
+<target name="schematron-lint-unit" description="apply unit test">
+  	<schematron schema="sch/xslt-std.sch" failonerror="false">
+  	  <fileset dir="test/xsl" includes="*.xsl"/>
+  	</schematron>
+</target>
+
+</project>

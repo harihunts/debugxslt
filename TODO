@@ -1,0 +1,36 @@
+generated from http://code.google.com/p/debugxslt/issues/list
+
+ID  	Type  	Status  	Priority  	Milestone  	Owner  	   	Summary + Labels  	...
+1 	Enhancement 	Accepted 	High 	---- 	James.Fuller.2007 	› 	run multiple processors over xslt 	 
+2 	Enhancement 	Accepted 	High 	---- 	James.Fuller.2007 	› 	enhance error reports	
+3 	Enhancement 	Accepted 	Medium 	---- 	James.Fuller.2007 	› 	create nice report format 	 
+
+some more ideas for rules I would like to implement;
+
+	Duplicate match patterns
+
+	Unused defined modes
+
+	Undefined modes
+
+	Undefined named templates
+
+	unused defined named templates
+
+	Templates that use name= where match= was probably intended
+
+	xsl:call-template elements that contain anything other than xsl:with-param
+
+	Variable/parameter references that are not defined at the point of use
+
+	Forgot to add @ to attribute, common with prefixed attributes
+
+here the following rules would be interested in case sensitivity in elements, attributes and params/vars
+	Same name different caps when addressing element
+	Same name different caps with attributes
+	Same name different caps with param/var
+
+the following rules are for content that is not well formed
+
+	added ending angle bracket in middle of xsl:stylesheet element
+	Missing quote in select statement

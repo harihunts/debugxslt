@@ -1,0 +1,15 @@
+#!/bin/bash
+################################################################
+# debugxslt run script (ex. debugxslt somefile.xslt)
+################################################################
+
+# ANT_OPTS: ant environment
+# ANT_OPTS=-Xms512m -Xmx1024m
+
+################################################################
+#      Run ant script
+################################################################
+# IMPORTANT: need to provide correct path to XSLT v2.0 processor
+# ex. -lib lib/saxon
+################################################################
+ant -lib lib/saxon -Dxslt.file=$@ -f build.xml run

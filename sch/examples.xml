@@ -1,0 +1,300 @@
+<func-tests xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<tests>
+	
+    <test id="startrule" category="system">    
+     <title>Low Level matching rules</title>
+     <desc></desc>
+     <author email="">James Fuller</author>
+     <date>2007-04-21</date>
+     <rules>
+     <rule id="startrule">
+        <production>
+            <regex><![CDATA[{Text::Balanced::extract_tagged($text, '<test>', '</test>' )}]]></regex>
+            <perl>print "$item[1] matched rule\n"</perl>
+        </production>
+     </rule>
+     </rules>
+    </test>
+
+    <test id="saxon1" category="saxon" type="default error message">    
+     <title>Confusing Error Message</title>
+     <summary>saxon thinks that system-property values are empty, when they are just unquoted</summary>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-01-05</date>
+     <example>
+     <error_message>Fatal Error! java.lang.IllegalArgumentException: key can't be empty Cause: java.lang.IllegalArgumentException: key can't be empty</error_message>
+     <input>
+          <xslt version="1.0">xsl/test.xsl</xslt>
+          <xml>xml/test.xml</xml>
+     </input>
+     </example>
+    </test>
+
+    <test id="xpath1" category="xpath" type="">    
+     <title>Unmatched brackets in xpath statement</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <example>
+     <error_message/>
+     <input>
+          <xslt version="1.0" type="snippet">
+          	<xsl:template match="root]">template never matches</xsl:template>
+          </xslt>
+          <xml><!-- not required //--></xml>
+     </input>
+     </example>
+    </test>
+
+
+    <test id="xpath2" category="xpath" type="">    
+     <title>Xpath statement preceded with ..</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <example>
+     <error_message/>
+     <input>
+          <xslt version="1.0" type="snippet">
+          	<xsl:apply-templates select="..someelement/test"/>
+          </xslt>
+          <xml><!-- not required //--></xml>
+     </input>
+     </example>
+    </test>
+
+
+    <test id="typo1" category="typo" type="">    
+     <title>xsl:param commonly mispelled</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <example>
+     <error_message/>
+     <input>
+          <xslt version="1.0" type="snippet">
+          	<xsl:parameter name="test" select="''"/>
+          </xslt>
+          <xslt version="1.0" type="snippet">
+          	<xsl:parem name="test" select="''"/>
+          </xslt>
+          <xml><!-- not required //--></xml>
+     </input>
+     </example>
+    </test>
+
+
+    <test id="typo2" category="typo" type="">    
+     <title>XSLT namespace can be wrong sometimes</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <example>
+     <input>
+          <xslt version="1.0" type="snippet">
+          	<xsl:stylesheet  xmlns:xsl="http://www.w3.org/1999/XSL/Transforms"/>
+          </xslt>
+     </input>
+     </example>
+    </test>
+
+    <test id="xpath3" type="xpath">    
+     <title>Misunderstanding of addressing attributes or missing brackets with attribute</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <example>
+     <input>
+          <xslt version="1.0" type="snippet">
+			<xsl:variable name="testvar" select="test@result"/>
+          </xslt>
+     </input>
+     </example>
+    </test>
+
+    <test id="xpath4" type="xpath">    
+     <title>Forgot to add @ to attribute, common with prefixed attributes</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <incorrect>
+          <xslt version="1.0" type="snippet">
+			<xsl:template match="test:id">test:id attribute matched</xsl:template> 
+          </xslt>
+     </incorrect>
+     <correct>
+          <xslt version="1.0" type="snippet" xmlns:test="http://www.webcomposite.com/test">
+			<xsl:template match="test:id">test:id attribute matched</xsl:template> 
+          </xslt>
+     </correct>
+    </test>
+
+
+    <test id="typo5" type="typo">    
+     <title>Same name different caps when addressing element</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <incorrect>
+          <xslt version="1.0" type="snippet">
+			<xsl:template match="tEst"></xsl:template> 
+          </xslt>
+     </incorrect>
+     <correct>
+          <xslt version="1.0" type="snippet" xmlns:test="http://www.webcomposite.com/test">
+			<xsl:template match="test"></xsl:template> 
+          </xslt>
+     </correct>
+    </test>
+
+    <test id="typo5" type="typo">    
+     <title>Same name different caps with attributes</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <incorrect>
+          <xslt version="1.0" type="snippet">
+			<xsl:template match="@tEst"></xsl:template> 
+          </xslt>
+     </incorrect>
+     <correct>
+          <xslt version="1.0" type="snippet" xmlns:test="http://www.webcomposite.com/test">
+			<xsl:template match="@test"></xsl:template> 
+          </xslt>
+     </correct>
+    </test>
+
+    <test id="typo6" type="typo">    
+     <title>Same name different caps with param/var</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <incorrect>
+          <xslt version="1.0" type="snippet">
+			<xsl:value-of select="$tEst"/>
+          </xslt>
+     </incorrect>
+     <correct>
+          <xslt version="1.0" type="snippet" xmlns:test="http://www.webcomposite.com/test">
+			<xsl:value-of select="$test"/>
+          </xslt>
+     </correct>
+    </test>
+
+
+
+    <test id="misc1" category="" type="">    
+     <title>added angle bracket in xsl:stylesheet element</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2008-13-01</date>
+     <example>
+     <input>
+          <xslt version="1.0" type="snippet">
+		<![CDATA[ 
+			<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"                                                                       
+			        version="1.0"                                                                                                                  
+			        xmlns:fd="http://www.flamedigital.com/fdcms/2005"                                                                              
+			        xmlns:xi="http://www.w3.org/2001/XInclude"                                                                                     
+			        xmlns:html="http://www.w3.org/1999/xhtml"                                                                                      
+			        xmlns:request="http://exist-db.org/xquery/request"                                                                             
+			        xmlns="http://www.w3.org/1999/xhtml">  
+			        exclude-result-prefixes = "request xi fd html">                                                                                
+	  ]]>
+          </xslt>
+     </input>
+     </example>
+    </test>
+
+
+    <test id="misc1" category="" type="">    
+     <title>Missing quote in select statement</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <example>
+     <input>
+          <xslt version="1.0" type="snippet">
+			<![CDATA[ <xsl:value-of select="../Categories/Category/> ]]>
+          </xslt>
+     </input>
+     </example>
+    </test>
+
+    <test id="misc1" category="silent_error" type="">    
+     <title>Forgot to put quotes around name in concat function</title>
+     <author email="jim.fuller@webcomposite.com">James Fuller</author>
+     <date>2007-05-06</date>
+     <error>
+          <xslt version="1.0" type="snippet">
+			<xsl:value-of select='concat(page, position(), ".html")'/>
+          </xslt>
+     </error>
+	 <shouldbe>
+         <xslt version="1.0" type="snippet">
+			<xsl:value-of select='concat("page", position(), ".html")'/>
+         </xslt>		
+	</shouldbe>
+    </test>
+
+
+
+ 
+
+
+
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Failure to provide a version attribute to xsl:stylesheet element.</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Duplicate match patterns.</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Unused defined modes.</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Undefined modes.</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Undefined named templates.</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>unused defined named templates.</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Templates that use name= where match= was probably intended</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>xsl:call-template elements that contain anything other than xsl:with-param</title>
+    </test>
+
+    <test id="xslt1" category="xslt" type="">    
+     <title>Variable/parameter references that are not defined at the point of use.</title>
+    </test>
+
+</tests>
+
+<preamble><![CDATA[package XSLT::Lint::grammer;
+
+######### AUTO GENERATED with generate-grammer.pl
+
+use strict;
+use warnings;
+    
+use XML::Descent;
+
+]]>
+</preamble>
+
+<postamble>
+<![CDATA[
+
+sub new {
+
+my $p = XML::Descent->new({
+    Input   => \$grammer
+});
+
+}
+
+]]>
+</postamble>
+
+</func-tests>
