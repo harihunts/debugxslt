@@ -8,7 +8,6 @@
 
   <pattern> 
      <rule context="xsl:stylesheet">
-  	<assert test="count(@version) = 1">All XSLT files should have a single version attribute.</assert>
   	<assert test="@version = '1.0' or @version='2.0'">There are only XSLT version 1.0 or 2.0.</assert>
      </rule>
   </pattern>
