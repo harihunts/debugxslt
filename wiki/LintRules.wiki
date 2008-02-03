@@ -12,7 +12,7 @@ Please review the sch/xslt-std.sch for examples of rules.
 
 = Where is XSLT schematron schema? =
 
-I am working on generatin
+It is surprisingly simple to generate one, but I wanted to get more rule authoring experience before I added on a big chunk of schematron.
 
 = Some ideas for simple rules =
 
