@@ -10,19 +10,24 @@ svn checkout http://debugxlst.googlecode.com/svn/trunk/ debugxslt-read-only
 }}}
 
 
+
 = Installation and Dependencies =
 
-Most up to date definition of dependencies is contained in the source code [http://debugxslt.googlecode.com/svn/trunk/README README]
+If you are using the full distribution you will need the following;
 
-*I*: One needs an XSLT v2.0 processor (I test with Saxon-SA) to run xproc.xq.
+[http://debugxslt.googlecode.com/svn/trunk/README README]
 
-*II*: For now, one will require [http://ant.apache.org Apache Ant] to run unit tests and compile associated artifacts.
+*I*: XSLT v2.0 processor, I recommend downloading Michael Kay's Saxon from www.saxonica.com. You will have to unzip (pref in /lib dir) and amend build.properties as to location and saxon jar name
 
-*III*: For now, use Schematron Ant Task.
+*II*: Apache Ant [http://ant.apache.org Apache Ant] is required to run 
+
+*III*: Schematron Ant Task.
 
 *IV*: Amend your local [http://debugxslt.googlecode.com/svn/trunk/build.properties build properties] to reflect your setup and where your XSLT processor jars are.
 
+*V*: Amend debugxslt run script with where your XSLT processor is (using Ant -lib flag)
 
+You do not have to use the distribution, you could just 
 = Usage =
 
 to get Ant targets, run Apache Ant with -projecthelp switch  
