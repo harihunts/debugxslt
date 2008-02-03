@@ -43,10 +43,5 @@
      </rule>
   </pattern>
 
-  <pattern> 
-     <rule context="xsl:call-template">
-  	 <report test="xsl:with-param">there is no xsl:with-param on the call-template</report>
-     </rule>
-  </pattern>
 
 </schema>
