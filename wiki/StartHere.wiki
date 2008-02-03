@@ -1,13 +1,32 @@
-#summary One-sentence summary of this page.
+#summary How to get debugxslt and install & use against your own xslt.
 
-= Introduction =
+= Getting debugxslt =
 
-Add your content here.
+So far I have not released any packaged version of debugxslt ... so your only method of getting it is by checking out from [http://code.google.com/p/debugxslt/source subversion].
+
+{{{
+# Non-members may svn check out a read-only working copy anonymously over HTTP.
+svn checkout http://debugxlst.googlecode.com/svn/trunk/ debugxslt-read-only
+}}}
 
 
-= Details =
+= Installation and Dependencies =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Most up to date definition of dependencies is contained in the source code [http://debugxslt.googlecode.com/svn/trunk/README README]
+
+*I*: One needs an XSLT v2.0 processor (I test with Saxon-SA) to run xproc.xq.
+
+*II*: For now, one will require [http://ant.apache.org Apache Ant] to run unit tests and compile associated artifacts.
+
+*III*: For now, use Schematron Ant Task.
+
+*IV*: Amend your local [http://debugxslt.googlecode.com/svn/trunk/build.properties build properties] to reflect your setup and where your XSLT processor jars are.
+
+
+= Usage =
+
+to get Ant targets, run Apache Ant with -projecthelp switch  
+
+> ant -projecthelp
+
+Buildfile: build.xml
