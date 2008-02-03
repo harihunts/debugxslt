@@ -1,6 +1,5 @@
 #summary Resources and References
 
-= Link Resources =
 
 * Schematron [http://www.schematron.com/resources.html resources]
 
