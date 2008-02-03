@@ -1,0 +1,6 @@
+#summary Resources and References
+
+= Link Resources =
+
+* Schematron [http://www.schematron.com/resources.html resources]
+* Michal Kay's [http://www.saxonica.com Saxon]: XSLT v1.0 and v2.0 processor
