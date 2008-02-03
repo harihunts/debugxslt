@@ -10,6 +10,10 @@ I use <assert/> when the described condition should exist (still some best pract
 
 Please review the sch/xslt-std.sch for examples of rules.
 
+= Where is XSLT schematron schema? =
+
+I am working on generatin
+
 = Some ideas for simple rules =
 
 some more ideas for rules I would like to implement;
