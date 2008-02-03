@@ -1,0 +1,5 @@
+#summary learn how to write your own rules
+
+Rules for checking well formed XSLT is performed by Schematron.
+
+Instead of defining some abstract vocabulary for rules I decided to just reuse schematrons very own approach. This may change over time, but for now (esp with XSLT v2.0) it is fine.
