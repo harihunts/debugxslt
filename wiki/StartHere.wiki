@@ -11,7 +11,7 @@ svn checkout http://debugxlst.googlecode.com/svn/trunk/ debugxslt-read-only
 
 
 
-= Installation and Dependencies =
+= Dependencies =
 
 If you are using the full distribution you will need the following;
 
@@ -28,6 +28,8 @@ If you are using the full distribution you will need the following;
 *V*: Amend debugxslt run script with where your XSLT processor is (using Ant -lib flag)
 
 You do not have to use the distribution, you could just 
+
+
 = Usage =
 
 to get Ant targets, run Apache Ant with -projecthelp switch  
