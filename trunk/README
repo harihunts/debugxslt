@@ -27,6 +27,7 @@ You will have to edit the build.properties file to inform debugxslt where SAXON 
 
 If you are using debugxslt bash script, you will have to edit ant -lib flag to reflect location of saxon jars
 
+
 RUN
 ---
 
@@ -39,6 +40,7 @@ to run debugxslt test suite run ant Test target
 > ant -lib lib/saxon -f build.xml test
 
 Another (perhaps simpler way) option is to just take the rules schematron and run in your own setup.
+
 
 DISTRO
 ------
@@ -57,18 +59,12 @@ The distribution consists of:
 
     debugxslt   debugxslt bash script
 
-    lib/    3rd party deps, this directory is empty for the time being
+    lib/    3rd party deps, this directory is empty, you must download dependencies and install here
 
     test/   contains example xslt for unit tests
 
 	sch/ 	contains debugxslt lint rules
 	
-
-CHANGES
--------
-
-Check out the Changelog file which is from time to time, generated from svn history
-
 
 TODO
 ----
@@ -85,7 +81,7 @@ http://groups.google.com/group/debugxslt
 debugxslt@googlegroups.com
 
 
-COPYRIGHT
----------
+AUTHOR
+------
 
 debugxslt and related material and website is the Copyright (C) 2008 of James Fuller (jim.fuller@webcomposite.com), All rights reserved.
