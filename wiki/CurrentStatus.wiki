@@ -18,7 +18,7 @@ The source code [http://debugxslt.googlecode.com/svn/trunk/TODO TODO] file is th
 
 There are so many issues to list .... so I will just highlight the major ones;
 
-  * depends on using an XSLT v2.0 processor,  Michael Kay's [http://www.saxonica.com Saxon-SA]  XSLT/XQUERY processor is the one I use for testing.
+  * depends on using an XSLT v2.0 processor,  Michael Kay's [http://www.saxonica.com Saxon > v.8.9 ]  XSLT/XQUERY processor is the one I use for testing.
 
 _Note: Looking at the current trunk/TODO file will help you determine what I am focusing on for now._
 
