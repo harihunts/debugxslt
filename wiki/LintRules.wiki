@@ -1,10 +1,19 @@
 #summary overview of rules, how to write them and future plans
 
-= Some ideas =
+= What are Rules =
+
+Rules are just schematron <assert/> or <report/> elements, which are contained in sch/xslt-std.sch.
+
+I use <report/> when it is an ambiguous condition and want to output some extra information that might help 'jog' the XSLT authors mind that all is well.
+
+I use <assert/> when the described condition should exist (still some best practice here, for example I believe a xsl:stylesheet should have @version attribute). 
+
+Please review the sch/xslt-std.sch for examples of rules.
+
+= Some ideas for simple rules =
 
 some more ideas for rules I would like to implement;
 
-  * Duplicate match patterns
 
   * Unused defined modes
 
@@ -23,6 +32,11 @@ some more ideas for rules I would like to implement;
   * Forgot to add @ to attribute, common with prefixed attributes
 
   * Misunderstanding of addressing attributes or missing brackets with attribute ex. <xsl:variable name="testvar" select="test@result"/>
+
+
+= More difficult rules to implement =
+
+  * Duplicate match patterns
 
 here the following rules would be interested in case sensitivity in elements, attributes and params/vars
 	
